@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.insurance</groupId>
+  <artifactId>AXA_insurance</artifactId>
+  <packaging>war</packaging>
+  <version>1.0</version>
+  <name>AXA_insurance Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <distributionManagement>
+   <snapshotRepository>
+      <id>SNAPSHOT</id>
+      <url>http://localhost:8083/repository/SNAPSHOT/</url>
+   </snapshotRepository>
+</distributionManagement>
+
+ <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+	
+	
+  </dependencies>
+  
+   <!--scm>
+    <connection>scm:svn:https://user-PC/svn/mavenrepo/trunk</connection>
+    <developerConnection>scm:svn:https://user-PC/svn/mavenrepo/trunk</developerConnection>
+    <url>scm:svn:https://user-PC/svn/mavenrepo/</url>
+  </scm-->
+  
+  <build>
+    <finalName>AXA_insurance</finalName>
+ 
+         <pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <!--version>1.8</version-->
+        <executions>
+          <execution>
+            <phase>test</phase>
+			<goals>
+			       <goal>run</goal>
+			</goals>	   
+            <configuration>
+              <tasks>
+			         <echo>copy Dev.Properties into target</echo>
+				<copy file="src/main/resources/Dev.PROPERTIES" tofile="${project.build.outputDirectory}/Dev.PROPERTIES" />          
+             </tasks>
+            </configuration>       
+          </execution>
+        </executions>
+      </plugin>
+	  
+	  
+	  <!--plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+        <configuration>
+          <tagBase>https://user-PC/svn/mavenrepo/tags</tagBase>
+        </configuration>
+      </plugin-->
+	  
+	  <!--plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-scm-plugin</artifactId>
+        <version>1.11.1</version>
+        <configuration>
+          <connectionType>connection</connectionType>
+        </configuration>
+      </plugin-->
+	  
+	  
+        <!--configuration>
+          <connectionType>developerConnection</connectionType>
+        </configuration-->
+      
+	  
+    </plugins>
+  
+    </pluginManagement>
+  </build>
+  
+</project>
